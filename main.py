@@ -5,17 +5,21 @@ import pygame.mixer
 from classes import *
 
 
-background = pygame.transform.scale(pygame.image.load(f"{DATA_DIR}/{BACKGROUNDS_DIR}/bg.jpg"), WINDOW_SIZE)
+background = pygame.transform.scale(
+    pygame.image.load(f"{DATA_DIR}/{BACKGROUNDS_DIR}/bg.jpg"), WINDOW_SIZE)
 
 restart_button = Button(
-        image=pygame.transform.scale(pygame.image.load(f"{DATA_DIR}/{BACKGROUNDS_DIR}/restart_button.png"), (50, 50)),
+        image=pygame.transform.scale(
+            pygame.image.load(f"{DATA_DIR}/{BACKGROUNDS_DIR}/restart_button.png"), (50, 50)),
         rect=pygame.rect.Rect(WIDTH // 2, HEIGHT // 2, 100, 100),
         size=pygame.rect.Rect(int(WIDTH * 0.1), int(HEIGHT * 0.1), 50, 50))
 home_button = Button(
-        image=pygame.transform.scale(pygame.image.load(f"{DATA_DIR}/{BACKGROUNDS_DIR}/home.png"), (50, 50)),
+        image=pygame.transform.scale(
+            pygame.image.load(f"{DATA_DIR}/{BACKGROUNDS_DIR}/home.png"), (50, 50)),
         rect=pygame.rect.Rect(WIDTH - 60, 10, 50, 50))
 play_button = Button(
-        image=pygame.transform.scale(pygame.image.load(f"{DATA_DIR}/{BACKGROUNDS_DIR}/play.png"), (100, 100)),
+        image=pygame.transform.scale(
+            pygame.image.load(f"{DATA_DIR}/{BACKGROUNDS_DIR}/play.png"), (100, 100)),
         rect=pygame.rect.Rect(WIDTH // 2 - 200, HEIGHT // 2, 100, 100),
         size=pygame.rect.Rect(int(WIDTH * 0.1), int(HEIGHT * 0.1), 50, 50))
 buttons = [play_button]
@@ -55,11 +59,14 @@ def start(screen, waiting=True):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if play_button.check_pressed(event.pos):
                     waiting = False
-                if WIDTH / 2 + 100 <= mouse[0] <= WIDTH / 2 + 240 and HEIGHT / 2 <= mouse[1] <= HEIGHT / 2 + 40:
+                if WIDTH / 2 + 100 <= mouse[0] <= WIDTH / 2 + 240 \
+                        and HEIGHT / 2 <= mouse[1] <= HEIGHT / 2 + 40:
                     flag_enemy = 1
-                if WIDTH / 2 + 100 <= mouse[0] <= WIDTH / 2 + 240 and HEIGHT / 2 + 50 <= mouse[1] <= HEIGHT / 2 + 90:
+                if WIDTH / 2 + 100 <= mouse[0] <= WIDTH / 2 + 240 \
+                        and HEIGHT / 2 + 50 <= mouse[1] <= HEIGHT / 2 + 90:
                     flag_enemy = 2
-                if WIDTH / 2 + 100 <= mouse[0] <= WIDTH / 2 + 240 and HEIGHT / 2 + 100 <= mouse[1] <= HEIGHT / 2 + 140:
+                if WIDTH / 2 + 100 <= mouse[0] <= WIDTH / 2 + 240 \
+                        and HEIGHT / 2 + 100 <= mouse[1] <= HEIGHT / 2 + 140:
                     flag_enemy = 3
             if event.type == pygame.MOUSEMOTION:
                 sprite_cursor.rect.topleft = event.pos
@@ -197,7 +204,8 @@ def main():
         elif flag_enemy == 2:
             game.move_enemy1()
             game.move_enemy2()
-            if hero.get_position() == enemy1.get_position() or hero.get_position() == enemy2.get_position():
+            if hero.get_position() == enemy1.get_position() \
+                    or hero.get_position() == enemy2.get_position():
                 end(screen, event, win=False)
                 pygame.display.flip()
         elif flag_enemy == 3:
@@ -205,7 +213,8 @@ def main():
             game.move_enemy2()
             game.move_enemy3()
             if hero.get_position() == enemy1.get_position() \
-                    or hero.get_position() == enemy2.get_position() or hero.get_position() == enemy3.get_position():
+                    or hero.get_position() == enemy2.get_position() \
+                    or hero.get_position() == enemy3.get_position():
                 end(screen, event, win=False)
                 pygame.display.flip()
         screen.fill((0, 0, 0))

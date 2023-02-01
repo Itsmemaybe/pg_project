@@ -267,7 +267,8 @@ class Button:
         self.sound = load_sound("press.wav")
 
     def check_pressed(self, pos):
-        if (not self.size_using and self.rect.collidepoint(pos)) or (self.size_using and self.size.collidepoint(pos)):
+        if (not self.size_using and self.rect.collidepoint(pos)) \
+                or (self.size_using and self.size.collidepoint(pos)):
             if self.image2 is not None:
                 self.image, self.image2 = self.image2, self.image
             self.timer = 1 if self.image2 is not None else 100
