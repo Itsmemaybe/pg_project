@@ -69,3 +69,29 @@ while True:
 
     # updates the frames of the game
     pygame.display.update()
+
+
+'''
+    def find_path_step(self, start, target):
+        INF = 1000
+        x, y = start
+        distance = [[INF] * WIDTH for _ in range(HEIGHT)]
+        distance[y][x] = 0
+        prev = [[None] * WIDTH for _ in range(HEIGHT)]
+        queue = [(x, y)]
+        while queue:
+            x, y = queue.pop(0)
+            for dx, dy in (1, 0), (0, 1), (-1, 0), (0, -1):
+                next_x, next_y = x + dx, y + dy
+                if 0 <= next_x < WIDTH and 0 < next_y < HEIGHT and \
+                        self.is_free((next_x, next_y)) and distance[next_y][next_x] == INF:
+                    distance[next_y][next_x] = distance[y][x] + 1
+                    prev[next_y][next_x] = (x, y)
+                    queue.append((next_x, next_y))
+        x, y = target
+        if distance[y][x] == INF or start == target:
+            return start
+        while prev[y][x] != start:
+            x, y = prev[y][x]
+        return x, y
+'''
