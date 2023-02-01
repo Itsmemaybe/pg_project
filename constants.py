@@ -1,0 +1,28 @@
+WINDOW_SIZE = WIDTH, HEIGHT = 896, 672
+FPS = 15
+MAPS_DIR = 'maps'
+TILE_SIZE = 32
+DATA_DIR = 'data'
+SOUNDS_DIR = 'sounds'
+SPRITE_DIR = 'sprite'
+SMALL_SIZE = 10
+FREE_TILES = [
+      160,
+      291,
+      741,
+      283,
+      257,
+      428
+    ]
+FINISH_TILE = 741
+BACKGROUNDS_DIR = 'other'
+COLOR_INACTIVE = (100, 80, 255)
+COLOR_ACTIVE = (100, 200, 255)
+COLOR_LIST_INACTIVE = (255, 100, 100)
+COLOR_LIST_ACTIVE = (255, 150, 150)
+COLOR_MAIN = (255, 60, 0)
+COLOR_OPTIONAL = (255, 200, 0)
+COLOR_WHITE = (255, 255, 255)
+color_light = (170, 170, 170)
+color_dark = (100, 100, 100)
+
